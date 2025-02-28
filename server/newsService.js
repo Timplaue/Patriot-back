@@ -4,7 +4,7 @@ const News = require('./models/News');
 const router = express.Router();
 
 // Получить все новости
-router.get('/news', async (req, res) => {
+router.get('/', async (req, res) => {
     try {
         const news = await News.find().sort({ createdAt: -1 }); // Сортировка по дате
         res.json(news);
