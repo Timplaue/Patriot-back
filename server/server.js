@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 const authRouter = require('./authService');
 const newsRouter = require('./newsService');
+const forumRouter = require('./forumService');
 const path = require('path');
 const app = express();
 const PORT = 5000;
@@ -19,6 +20,7 @@ app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
 app.use('/api/auth', authRouter);
 app.use('/api/news', newsRouter);
+app.use('/api/forum', forumRouter);
 
 app.listen(PORT, () => {
     console.log(`Сервер запущен на http://localhost:${PORT}`);
