@@ -4,6 +4,8 @@ const cors = require('cors');
 const authRouter = require('./authService');
 const newsRouter = require('./newsService');
 const forumRouter = require('./forumService');
+const eventsRouter = require('./eventsService');
+const humansRouter = require('./humansService');
 const path = require('path');
 const app = express();
 const PORT = 5000;
@@ -19,8 +21,10 @@ app.use(express.json());
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
 app.use('/api/auth', authRouter);
+app.use('/api/humans', humansRouter);
 app.use('/api/news', newsRouter);
 app.use('/api/forum', forumRouter);
+app.use('/api/events', eventsRouter);
 
 app.listen(PORT, () => {
     console.log(`Сервер запущен на http://localhost:${PORT}`);
