@@ -6,6 +6,7 @@ const newsRouter = require('./newsService');
 const forumRouter = require('./forumService');
 const eventsRouter = require('./eventsService');
 const humansRouter = require('./humansService');
+const mapEventsRouter = require('../routes/mapEvents');
 const path = require('path');
 const app = express();
 const PORT = 5000;
@@ -25,6 +26,7 @@ app.use('/api/humans', humansRouter);
 app.use('/api/news', newsRouter);
 app.use('/api/forum', forumRouter);
 app.use('/api/events', eventsRouter);
+app.use('/api/map-events', mapEventsRouter);
 
 app.listen(PORT, () => {
     console.log(`Сервер запущен на http://localhost:${PORT}`);
