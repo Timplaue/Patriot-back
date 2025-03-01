@@ -13,4 +13,16 @@ router.get('/', async (req, res) => {
     }
 });
 
+router.get('/:id', async (req, res) => {
+    try {
+        const news = await News.findById(req.params.id);
+        if (!news) {
+            return res.status(404).json({ message: 'Новость не найдена' });
+        }
+        res.json(news);
+    } catch (err) {
+        res.status(500).json({ message: 'Ошибка при получении новости', error: err });
+    }
+});
+
 module.exports = router;
