@@ -7,7 +7,7 @@ const UserSchema = new mongoose.Schema({
     birthDate: Date,
     username: { type: String, unique: true },
     password: { type: String, required: true },
-    avatarUrl: { type: String, default: '' },
+    avatarUrl: { type: String, default: '/images/avatar.png' },
     registrationDate: { type: Date, default: Date.now },
 });
 
